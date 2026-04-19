@@ -1175,6 +1175,77 @@ img {
         font-size: 14px;
     }
 }
+
+//666
+/* 标题栏边框 - 增强滤镜 */
+.qq-im .qq-title-left {
+    background-image: url('/happybirthdayui/im/IMBorderTop.png');
+    width: 25px;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+.qq-im .qq-title-center {
+    background-image: url('/happybirthdayui/im/IMBorderTop.png');
+    background-size: 10000px 26px;
+    background-position: top;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+/* 底部边框 */
+.qq-im .qq-bottom-left,
+.qq-im .qq-bottom-center,
+.qq-im .qq-bottom-right {
+    background-image: url('/happybirthdayui/im/IMBorderBottom.png');
+    height: 8px;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+/* 大工具栏背景 */
+.qq-im-big-toolbar {
+    margin: 0 4px;
+    padding-left: 6px;
+    height: 36px;
+    background-image: url('/happybirthdayui/im/IMBigToolBarBackground.png');
+    display: flex;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+/* 右侧栏按钮 */
+.qq-im-side-btn {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    z-index: 2;
+    text-align: left;
+    padding-left: 20px;
+    background-image: url('/happybirthdayui/im/IMSidebarButtonExpand_Normal.png');
+    background-size: 1000px 100%;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+.qq-im-side-btn::before {
+    background-image: url('/happybirthdayui/im/IMSidebarButton_Normal.png');
+    width: 50px;
+    left: 0;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+.qq-im-side-btn::after {
+    background-image: url('/happybirthdayui/im/IMSidebarMenu_Normal.png');
+    width: 33px;
+    right: 0;
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+.qq-im-side-btn:hover::before {
+    background-image: url('/happybirthdayui/im/IMSidebarButton_Hover.png');
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
+
+.qq-im-side-btn:hover::after {
+    background-image: url('/happybirthdayui/im/IMSidebarMenu_Hover.png');
+    filter: brightness(1.2) saturate(0.5) hue-rotate(280deg);
+}
 </style>
 </head>
 
