@@ -1886,6 +1886,38 @@ function closeWindow() {
     if (chatWindow) chatWindow.style.display = 'none';
 }
 
+// 欢迎消息序列
+const welcomeMessages = [
+    '<img src="/happybirthdayui/emojis/001.gif" style="width: 50px; height: 50px;" /> 呀~ 你上线了啊！',
+    '等你好久了呢~',
+    '今天过得怎么样呀？',
+    '<img src="/happybirthdayui/emojis/heart.gif" style="width: 50px; height: 50px;" /> 想我了没？',
+    '有什么想聊的吗？我随时都在哦~'
+];
+
+let welcomeIndex = 0;
+let welcomeTimer = null;
+
+// 播放欢迎消息序列
+function playWelcomeMessages(callback) {
+    welcomeIndex = 0;
+    
+    function playNext() {
+        if (welcomeIndex < welcomeMessages.length) {
+            addAIChatMessage(welcomeMessages[welcomeIndex], false);
+            welcomeIndex++;
+            
+            // 每条消息间隔 1.5 秒
+            welcomeTimer = setTimeout(playNext, 1500);
+        } else {
+            // 欢迎消息播放完毕，执行回调
+            if (callback) callback();
+        }
+    }
+    
+    playNext();
+}
+
 // 初始化AI聊天
 function initAIChat() {
     const sendBtn = document.getElementById('ai-send-btn');
@@ -1904,13 +1936,13 @@ function initAIChat() {
     
     lastInteractionTime = Date.now();
     
-    setTimeout(() => addAIChatMessage('<img src="/happybirthdayui/emojis/001.gif" style="width: 50px; height: 50px;" /> 呀~ 你上线了啊！', false), 1000);
-    
-    setTimeout(() => {
+    // 先播放欢迎消息序列，播放完后再启动自动回复
+    playWelcomeMessages(() => {
+        // 欢迎消息播放完毕，启动自动回复
         if (!isAutoReplying) {
             startAutoReply();
         }
-    }, 3000);
+    });
     
     const friendInfo = document.querySelector('.qq-im-friend-info');
     if (friendInfo) friendInfo.onclick = changeAIStyle;
