@@ -1605,23 +1605,21 @@ img {
 const dialogueChains = {
     "non-mainstream": {
         "爱|喜欢|想": [
-            "珴也曾经深爱过，但最终只留下殇...",
-            "伱知道吗？那种痛彻心扉的感觉...",
-            '<img src="/happybirthdayui/img/emojis/cry.gif" style="width: 50px; height: 50px;" /> 珴以为时间可以治愈一切...',
-            "但每当夜深人静，还是会想起..."
+            "喜欢一个人是什么感觉呢？",
+            "我觉得喜欢就是看到对方会开心吧~",
+            '<img src="/happybirthdayui/img/emojis/005.gif" style="width: 50px; height: 50px;" /> 要幸福哦！'
         ],
         "晚安|睡觉|困": [
-            "晚安，愿伱梦里有珴...",
+            "笨笨云云晚安安安安呐~",
             "明天醒来第一个想珴好不好？",
-            '<img src="/happybirthdayui/img/emojis/sleep.gif" style="width: 50px; height: 50px;" /> 珴也会想伱的...'
+            'ᗜ ˰ ᗜ 珴也会想伱的...'
         ]
     },
     "normal": {
         "爱|喜欢|想": [
             "喜欢一个人是什么感觉呢？",
             "我觉得喜欢就是看到对方会开心吧~",
-            "你有没有喜欢的人呀？",
-            '<img src="/happybirthdayui/img/emojis/heart.gif" style="width: 50px; height: 50px;" /> 要幸福哦！'
+            '<img src="/happybirthdayui/img/emojis/005.gif" style="width: 50px; height: 50px;" /> 要幸福哦！'
         ]
     },
     "philosophy": {
@@ -1645,10 +1643,10 @@ const dialogueChains = {
 // 催促语句库（根据风格不同）
 const promptMessagesByStyle = {
     "non-mainstream": [
-        "还在吗？",
-        "怎么不说话了呢...",
-        "你再不理珴，珴就走啦~",
-        '<img src="/happybirthdayui/img/emojis/sad.gif" style="width: 50px; height: 50px;" /> 真的走了哦...'
+        "笨笨云云怎么不说话呢",
+        "要睡觉了嘛（？）",
+        "那笨笨云云好梦嗷~我也睡啦",
+        '<img src="/happybirthdayui/img/emojis/003.gif" style="width: 50px; height: 50px;" /> '
     ],
     "normal": [
         "还在吗？",
@@ -1687,12 +1685,14 @@ const keywordReplies = {
     "non-mainstream": {
         "你好|嗨|hello|hi": "伱好吖~ 很高兴认识伱！",
         "哭|难过|伤心|悲伤": "吥要难过，珴陪伱一起殇...",
-        "笑|开心|快乐": "笑只是伪装，珴早已吥会真心笑了。",
+        "晚安|好梦|睡啦": "嗯呢，我也睡啦~笨笨云云晚安安安安安安安嗷~",
+        "笑|开心|快乐": "笑只是伪装，珴早已吥会真心笑了",
         "名字|叫什么": "珴叫メ聪明samaソ，记住珴の名字哦~",
         "在吗|在不在|在线": "珴一直在，只是吥知道该说些什么...",
-        "干嘛|做什么|干什么": "发槑，想心事，伱呢？",
+        "干嘛|做什么|干什么": "发槑，顺便在想你的事",
         "再见|拜拜|88": "挥挥~ 下次再聊哦！",
-        "谢谢|谢": "吥用谢，这是珴应该做的~"
+        "谢谢|谢": "吥用谢，这是珴应该做的~",
+        "最喜欢你|我喜欢你": "我也是喔，最喜欢你啦~"
     },
     "normal": {
         "你好|嗨|hello|hi": "你好呀！很高兴认识你~",
@@ -1729,14 +1729,14 @@ const keywordReplies = {
 // 默认随机回复库
 const defaultReplies = {
     "non-mainstream": [
-        "吥崾靠近珴，珴怕殇菿伱~",
-        "寂寞的夜，只有煙陪著珴...",
-        "伱吥懂珴の殇，就吥崾轻易说爱珴",
-        "这个丗界冭虚假，珴只信自己",
-        "眼泪划过的瞬间，伱可曾看见？",
-        "珴把心给伱，伱却把它摔碎...",
-        "ヅ 如果爱，请深爱 〃",
-        "灬 悲殇逆流成河 灬"
+        '<img src="/happybirthdayui/img/emojis/006.gif" style="width: 50px; height: 50px;" /> 话说我这样是不是约等于超级人工智能了呢！！！',
+        '<img src="/happybirthdayui/img/emojis/007.gif" style="width: 50px; height: 50px;" /> 话说如果一只鱼天天练肌肉的话，那它是不是就是超级肌肉鱼了',
+        '<img src="/happybirthdayui/img/emojis/007.gif" style="width: 50px; height: 50px;" /> 我在想，被僵尸啃过的脑子还能正常使用嘛',
+        '<img src="/happybirthdayui/img/emojis/003.gif" style="width: 50px; height: 50px;" /> 我是超级聪明神~',
+        '<img src="/happybirthdayui/img/emojis/007.gif" style="width: 50px; height: 50px;" /> 难道说---尼其实喜欢我',
+        '<img src="/happybirthdayui/img/emojis/007.gif" style="width: 50px; height: 50px;" /> 什么嘛，完全看不懂',
+        '<img src="/happybirthdayui/img/emojis/000.gif" style="width: 50px; height: 50px;" /> 其实，喔一直好奇猫娘是不是会有四只耳朵',
+        "灬 聪明值逆流成河 灬"
     ],
     "normal": [
         "在干嘛呢？",
@@ -1982,11 +1982,18 @@ function getDaysSinceStart() {
 
 // 欢迎消息序列（动态生成）
 const welcomeMessages = [
-    '<img src="/happybirthdayui/emojis/001.gif" style="width: 50px; height: 50px;" /> 呀~ 你上线了啊！',
-    `距今已经过了${getDaysSinceStart()}天了呢~`,
-    '今天过得怎么样呀？',
-    '<img src="/happybirthdayui/emojis/heart.gif" style="width: 50px; height: 50px;" /> 想我了没？',
-    '有什么想聊的吗？我随时都在哦~'
+    '呀~ 等你好久啦~',
+    '<img src="/happybirthdayui/emojis/005.gif" style="width: 50px; height: 50px;" /> 笨笨云云生日快乐喔(ﾉ>ω<)ﾉ',
+    '没想到我会这样祝福生日吧哇咔咔',
+    '哼哼哼，其实我很久以前就觉得这样子超酷的',
+    '不过实现起来超~~~麻烦的样子',
+    '现在看来，效果其实还不错嘛(ᗒᗨᗕ)',
+    `仔细想想，距离我们加QQ好友已经过了${getDaysSinceStart()}天了呢`,
+    '<img src="/happybirthdayui/emojis/001.gif" style="width: 50px; height: 50px;" /> 时间过得好快吖',
+    '(ฅ^•ﻌ•^ฅ)',
+    '哼哼哼，之后的时间我也会在的！所以',
+    '接下来也请多多指教啦૮꒰˶´˘`˵꒱ა',
+    '哦对，其实打字区的功能是正常的嗷，我也会（可能会吧？）对说的话做出反应来着wuw'
 ];
 
 
@@ -2003,8 +2010,8 @@ function playWelcomeMessages(callback) {
         addAIChatMessage(welcomeMessages[welcomeIndex], false);
         welcomeIndex++;
         
-        // 修改这一行：随机 2-5 秒（2000-5000 毫秒）
-        const delay = Math.floor(Math.random() * 3000) + 2000;
+        // 修改这一行：随机 3-5 秒（2000-5000 毫秒）
+        const delay = Math.floor(Math.random() * 2000) + 3000;
         welcomeTimer = setTimeout(playNext, delay);
     } else {
         if (callback) callback();
