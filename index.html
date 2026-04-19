@@ -666,7 +666,7 @@ img {
 }
 
 .qq-im {
-    background: #5db7ff;
+    background: #ffb6c1;  /* 浅粉色 */
     width: 500px;
     height: 460px;
     border-radius: 8px;
@@ -755,11 +755,14 @@ img {
 .qq-im .qq-title-left {
     background-image: url('/happybirthdayui/im/IMBorderTop.png');
     width: 25px;
+    filter: hue-rotate(280deg);  /* 旋转色相变为粉色 */
 }
+
 .qq-im .qq-title-center {
     background-image: url('/happybirthdayui/im/IMBorderTop.png');
     background-size: 10000px 26px;
     background-position: top;
+    filter: hue-rotate(280deg);
 }
 
 .qq-im .qq-bottom-left,
@@ -767,6 +770,7 @@ img {
 .qq-im .qq-bottom-right {
     background-image: url('/happybirthdayui/im/IMBorderBottom.png');
     height: 8px;
+    filter: hue-rotate(280deg);
 }
 .qq-im .qq-bottom-left {
     width: 10px;
@@ -787,6 +791,7 @@ img {
     height: 36px;
     background-image: url('/happybirthdayui/im/IMBigToolBarBackground.png');
     display: flex;
+    filter: hue-rotate(280deg);
 }
 .qq-im-big-toolbar button {
     color: rgb(7,30,129);
@@ -798,12 +803,23 @@ img {
     border: 1px solid transparent;
 }
 .qq-im-big-toolbar button:hover {
-    border-color: rgb(70,136,201);
-    background-color: rgb(130,199,255);
+    border-color: #ff69b4;
+    background-color: #ffd1dc;
 }
+
 .qq-im-big-toolbar button:active {
-    border-color: rgb(40,99,157);
-    background-color: rgb(83,168,245);
+    border-color: #ff1493;
+    background-color: #ffb6c1;
+}
+
+.qq-im-chat-toolbar button:hover {
+    border-color: #ffb6c1;
+    background-color: #ffe4e9;
+}
+
+.qq-im-chat-toolbar button:active {
+    border-color: #ff69b4;
+    background-color: #ffd1dc;
 }
 #qq-im-msg {
     background-image: url('/happybirthdayui/im/IMBigToolbarMQQ.png');
@@ -843,7 +859,7 @@ img {
 .qq-im-side, .qq-im-chat {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(53,111,175);
+    border: 1px solid #ff69b4;  /* 热粉色 */
     width: 140px;
     height: 100%;
     overflow: hidden;
@@ -866,10 +882,10 @@ img {
 }
 
 .qq-im-friend-info {
-    background: linear-gradient(to bottom, #ffffff, #b6d5f5);
-    border-bottom: 1px solid #84a6c6;
+    background: linear-gradient(to bottom, #fff0f5, #ffd1dc);  /* 粉色渐变 */
+    border-bottom: 1px solid #ffb6c1;
     padding: 1px 2px;
-    color: rgb(7,30,129);
+    color: #8b0045;  /* 深粉色文字 */
     cursor: pointer;
 }
 .qq-im-friend-info:hover {
@@ -914,7 +930,7 @@ img {
     gap: 4px;
     height: 20px;
     padding-left: 4px;
-    background: url('/happybirthdayui/im/IMSmallToolbarBackground.png');
+    background: #ffd1dc;  /* 浅粉色 */
     background-size: 10000px 100%;
     background-position: center;
 }
@@ -1886,34 +1902,45 @@ function closeWindow() {
     if (chatWindow) chatWindow.style.display = 'none';
 }
 
-// 欢迎消息序列
+// 计算距离2024年6月18日的天数
+function getDaysSinceStart() {
+    const startDate = new Date('2024-06-18T00:00:00+08:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const diffTime = today - startDate;
+    return Math.round(diffTime / (1000 * 60 * 60 * 24));
+}
+
+// 欢迎消息序列（动态生成）
 const welcomeMessages = [
     '<img src="/happybirthdayui/emojis/001.gif" style="width: 50px; height: 50px;" /> 呀~ 你上线了啊！',
-    '等你好久了呢~',
+    `距今已经过了${getDaysSinceStart()}天了呢~`,
     '今天过得怎么样呀？',
     '<img src="/happybirthdayui/emojis/heart.gif" style="width: 50px; height: 50px;" /> 想我了没？',
     '有什么想聊的吗？我随时都在哦~'
 ];
 
+
 let welcomeIndex = 0;
 let welcomeTimer = null;
+
 
 // 播放欢迎消息序列
 function playWelcomeMessages(callback) {
     welcomeIndex = 0;
     
     function playNext() {
-        if (welcomeIndex < welcomeMessages.length) {
-            addAIChatMessage(welcomeMessages[welcomeIndex], false);
-            welcomeIndex++;
-            
-            // 每条消息间隔 1.5 秒
-            welcomeTimer = setTimeout(playNext, 1500);
-        } else {
-            // 欢迎消息播放完毕，执行回调
-            if (callback) callback();
-        }
+    if (welcomeIndex < welcomeMessages.length) {
+        addAIChatMessage(welcomeMessages[welcomeIndex], false);
+        welcomeIndex++;
+        
+        // 修改这一行：随机 2-5 秒（2000-5000 毫秒）
+        const delay = Math.floor(Math.random() * 3000) + 2000;
+        welcomeTimer = setTimeout(playNext, delay);
+    } else {
+        if (callback) callback();
     }
+}
     
     playNext();
 }
